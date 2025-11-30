@@ -1,18 +1,9 @@
 
-# LIBRARY MANAGEMENT SYSTEM
+# Kiểm thử Unit Test cho Bài tập lớn OOP
 
 Bài tập lớn: Hệ thống quản lí thư viện Objectum
 
 Lớp: 2425I_INT2204_17
-
-
-## Authors: Objectum Group
-
-23021652 - Đoàn Khánh Nhật
-
-23021696 - Phạm Anh Tiến      
-
-23021740 - Cao Vũ Nhật Triều 
    
 
 ## Features
