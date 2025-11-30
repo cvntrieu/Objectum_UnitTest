@@ -7,14 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BookTest { // 8 tests
 
-    Book book;
-
-    @BeforeEach
-    void setUp() {
-        book = new Book(
+    private final Book book = new Book(
                 "111", 9781111111111L, "Theory of Java", "Author1",
-                4.9, "2010", "Publisher1", "http://image");
-    }
+                4.9, "2010", "Publisher1", "http://image"); // ko can setUp BeforeEach
 
     @Test
     void getIsbnTest() {

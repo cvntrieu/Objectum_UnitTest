@@ -64,6 +64,7 @@ class AddBooksControllerTest extends ApplicationTest { // Kiem thu javafx app ne
         controller.imageTextField.setText("http://image");
     }
 
+    // Ko test cac getter/setter voi Book Object, vi o day moi chi kiem thu dien du lieu hop le ko, chua tao dc Book Object
     // Kiem thu bien manh: min-, min, min+, normal, max-, max, max+
     @Test
     void test1() { // gia tri ko hop le cua quantity => pass khi trung voi code line 119 cua addbookController: quantity dc reset ve 0

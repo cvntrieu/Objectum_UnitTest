@@ -32,7 +32,9 @@ class SearchStrategyTest {
                 result.add(book);
             }
         }
-        assertEquals(2, result.size()); // 2 books found: Theory of Java, Java Practice
+        assertEquals(2, result.size()); // 2 books should be found: Theory of Java, Java Practice
+        assertEquals("Theory of Java", result.getFirst().getTitle());
+        assertEquals("Java Practice", result.get(1).getTitle());
     }
 
     @Test
@@ -55,7 +57,7 @@ class SearchStrategyTest {
             }
         }
         assertEquals(1, result.size());
-        assertEquals("Theory of Java", result.getFirst().getTitle());
+        assertEquals("Author1", result.getFirst().getAuthors());
     }
 
     @Test
@@ -67,45 +69,5 @@ class SearchStrategyTest {
             }
         }
         assertTrue(result.isEmpty());
-    }
-
-    @Test
-    void getIsbnTest() {
-        assertEquals("111", books.getFirst().getIsbn());
-    }
-
-    @Test
-    void getIsbn_13Test() {
-        assertEquals(9781111111111L, books.getFirst().getIsbn_13());
-    }
-
-    @Test
-    void getTitleTest() {
-        assertEquals("Theory of Java", books.getFirst().getTitle());
-    }
-
-    @Test
-    void getAuthorsTest() {
-        assertEquals("Author1", books.getFirst().getAuthors());
-    }
-
-    @Test
-    void getRatingTest() {
-        assertEquals(4.9, books.getFirst().getRating());
-    }
-
-    @Test
-    void getDateTest() {
-        assertEquals("2010", books.getFirst().getDate());
-    }
-
-    @Test
-    void getPublisherTest() {
-        assertEquals("Publisher1", books.getFirst().getPublisher());
-    }
-
-    @Test
-    void getImageUrlTest() {
-        assertEquals("http://image1", books.getFirst().getImageUrl());
     }
 }

@@ -198,5 +198,4 @@ public class Member extends User {
             e.printStackTrace();
         }
     }
-
 }
