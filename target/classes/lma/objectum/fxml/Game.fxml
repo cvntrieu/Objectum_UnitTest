@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1079.0" stylesheets="@../css/APIStyle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lma.objectum.Controllers.Game">
+   <children>
+
+      <!-- ListView để hiển thị các game -->
+      <ListView fx:id="gameListView" layoutX="222.0" layoutY="14.0" prefHeight="113.0" prefWidth="782.0" />
+
+      <!-- Sidebar với các buttons -->
+      <VBox layoutY="-5.0" prefHeight="809.0" prefWidth="135.0" styleClass="sidebar" stylesheets="@../css/HomeStyle.css">
+         <children>
+            <!-- Các button trên sidebar -->
+            <Button fx:id="homeButton" onAction="#HomeButton" prefHeight="35.0" prefWidth="99.0" styleClass="sidebar-button" text="Home">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <image>
+                        <Image url="@../Home/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <Button fx:id="accountButton" onAction="#AccountButton" prefHeight="37.0" prefWidth="99.0" styleClass="sidebar-button" text="Account">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <image>
+                        <Image url="@../Home/account.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <MenuButton fx:id="listButton" styleClass="sidebar-button" text="Options">
+               <items>
+                  <MenuItem fx:id="borrowBooksItem" onAction="#BorrowBooksItem" text="Borrow Books" />
+                  <MenuItem fx:id="returnBooksItem" onAction="#ReturnBooksItem" text="Return Books" />
+               </items>
+            </MenuButton>
+
+            <Button fx:id="APIButton" onAction="#APIButton" prefHeight="39.0" prefWidth="98.0" styleClass="sidebar-button" text="API">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <image>
+                        <Image url="@../Home/list.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <Button fx:id="MusicButton" onAction="#MusicButton" prefHeight="38.0" prefWidth="98.0" styleClass="sidebar-button" text="Music">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <image>
+                        <Image url="@../Home/Music.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <Button fx:id="gameButton" onAction="#AccountButton" prefHeight="39.0" prefWidth="99.0" styleClass="sidebar-button" text="Game">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <image>
+                        <Image url="@../Home/game.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <!-- Sign-out button -->
+            <Button fx:id="logoutButton" onAction="#LogOutButton" prefHeight="30.0" prefWidth="86.0" styleClass="sidebar-button" text="Sign out">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <image>
+                        <Image url="@../Home/logout-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+
+            <!-- Settings button -->
+            <Button fx:id="settingButton" onAction="#SettingButton" prefHeight="30.0" prefWidth="86.0" styleClass="sidebar-button" text="Setting">
+               <graphic>
+                  <ImageView fitHeight="20" fitWidth="20">
+                     <image>
+                        <Image url="@../Home/setting.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+
+            <!-- WebView để hiển thị trang game -->
+      <WebView fx:id="webView" layoutX="154.0" layoutY="156.0" prefHeight="615.0" prefWidth="918.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1075.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lma.objectum.Admin">
+    <children>
+        <VBox layoutY="94.0" prefHeight="706.0" prefWidth="94.0" style="-fx-background-color: #2c3e50;">
+            <children>
+                <Button fx:id="accountButton" contentDisplay="RIGHT" graphicTextGap="5.0" mnemonicParsing="false" onAction="#handleAccountButton" prefHeight="47.0" prefWidth="97.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 15px;" text="Account">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Home/account.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="homeButton" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="18.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="97.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 15px;" text="Home">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="37.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Home/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <MenuButton fx:id="listButton" prefHeight="47.0" prefWidth="97.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 15px;" text="List">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <items>
+                        <MenuItem fx:id="addBooksMenuItem" onAction="#handleAddBooks" text="Add Books" />
+                        <MenuItem fx:id="removeBooksMenuItem" onAction="#handleRemoveBooks" text="Remove Books" />
+                        <MenuItem fx:id="editBooksMenuItem" onAction="#handleEditBooks" text="Edit Books" />
+                        <MenuItem fx:id="APIButton" onAction="#APIButtonOnAction" text="API" />
+                        <MenuItem fx:id="removeMembersMenuItem" onAction="#handleRemoveMembers" text="Remove Members" />
+                        <MenuItem fx:id="editMembersMenuItem" onAction="#handleEditMembers" text="Edit Members" />
+                        <MenuItem fx:id="searchBooksMenuItem" onAction="#handleBorrowBooksItem" text="Search Books" />
+                    </items>
+                </MenuButton>
+                <Region fx:id="leftRegion" prefHeight="513.0" prefWidth="94.0" />
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="50.0" prefWidth="94.0" style="-fx-background-color: #FF0000;" text="Log Out" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            </children>
+        </VBox>
+        <HBox alignment="CENTER" layoutY="19.0" prefHeight="74.0" prefWidth="94.0" style="-fx-background-color: #2c3e50;">
+            <children>
+                <Button fx:id="avataButton" mnemonicParsing="false" prefHeight="29.0" prefWidth="34.0">
+                    <graphic>
+                        <ImageView fx:id="avataImage" fitHeight="42.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Home/test-avata.jpg" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+        <ImageView fitHeight="784.0" fitWidth="982.0" layoutX="94.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="94.0">
+            <image>
+                <Image url="@../Home/main_background.png" />
+            </image>
+        </ImageView>
+        <HBox layoutY="-4.0" prefHeight="24.0" prefWidth="1075.0" style="-fx-background-color: #FFFFE0;" />
+
+        <Label layoutX="114.0" layoutY="70.0" prefHeight="24.0" prefWidth="144.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 15px;" text="Currently reading book">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="borrowedBooksTable" layoutX="114.0" layoutY="104.0" prefHeight="179.0" prefWidth="397.0">
+            <columns>
+                <TableColumn fx:id="titleColumn" prefWidth="150.0" text="Title" />
+                <TableColumn fx:id="authorColumn" prefWidth="150.0" text="Author" />
+                <TableColumn fx:id="dueDateColumn" prefWidth="100.0" text="Due Date" />
+            </columns>
+        </TableView>
+
+        <Label layoutX="114.0" layoutY="315.0" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 15px;" text="Read books">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="readBooksTable" layoutX="114.0" layoutY="350.0" prefHeight="179.0" prefWidth="398.0">
+            <columns>
+                <TableColumn fx:id="readTitleColumn" prefWidth="200.0" text="Title" />
+                <TableColumn fx:id="readAuthorColumn" prefWidth="200.0" text="Author" />
+            </columns>
+        </TableView>
+
+        <Label layoutX="114.0" layoutY="555.0" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 15px;" text="Fines">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+
+        <TableView fx:id="fineTable" layoutX="114.0" layoutY="591.0" prefHeight="150.0" prefWidth="398.0">
+            <columns>
+                <TableColumn fx:id="fineTitleColumn" prefWidth="200.0" text="Title" />
+                <TableColumn fx:id="fineAmountColumn" prefWidth="200.0" text="Fine Amount" />
+            </columns>
+        </TableView>
+
+        <Label fx:id="totalFineLabel" layoutX="114.0" layoutY="751.0" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #D3D3D3; -fx-background-radius: 15px;" text="Total Fine: 0.0">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+
+        <!-- Biểu đồ Bar Chart -->
+        <VBox layoutX="575.0" layoutY="82.0" prefHeight="300.0" prefWidth="300.0">
+            <children>
+                <Label text="Top Borrowed Books" />
+                <BarChart fx:id="topBorrowedBooksChart" prefHeight="250.0" prefWidth="300.0">
+                    <xAxis>
+                        <CategoryAxis fx:id="xAxisBorrowed" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="yAxisBorrowed" />
+                    </yAxis>
+                </BarChart>
+            </children>
+        </VBox>
+
+        <!-- Biểu đồ Line Chart -->
+        <VBox layoutX="575.0" layoutY="492.0" prefHeight="271.0" prefWidth="300.0">
+            <children>
+                <Label text="Fines Collected Over Time" />
+                <LineChart fx:id="finesOverTimeChart" prefHeight="250.0" prefWidth="300.0">
+                    <xAxis>
+                        <CategoryAxis fx:id="xAxisFines" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="yAxisFines" />
+                    </yAxis>
+                </LineChart>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
